@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h1>{% block title %}Update Listing{% endblock %}</h1>
+<h4 id='message'>{{message}}</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Old name of listing</label>
+        <input type="text" class="form-control" name="old-title" id="old-title" 
+            placeholder="Enter title">
+        <label for="title">New name of listing</label>
+        <input type="text" class="form-control" name="new-title" id="new-title" 
+            placeholder="Enter title">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" name="description" id="description" 
+            placeholder="Enter description">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" name="price" id="price" 
+            placeholder="Enter price">
+        <input class="btn btn-lg btn-primary" type="submit" 
+            value="Update Listing">
+    </div>
+</form>
+
+<a href='/'>Home</a>
+
+<a href='/logout'>logout</a>
+{% endblock %}

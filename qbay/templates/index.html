@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Profile{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2 id="welcome-header">Welcome {{ user.username }} !</h2>
+
+<div id="profile">
+    <h4>shipping address: 
+    {% if user.billing_address == '' %} 
+    empty
+    {% else %} 
+    {{ user.billing_address }}
+    {% endif %}</h4>
+    <h4>postal code: 
+    {% if user.postal_code == '' %} 
+    empty
+    {% else %} 
+    {{ user.postal_code }}
+    {% endif %}</h4>
+    <h4>balance: {{user.balance}}</h4>
+</div> 
+
+<h2>Here are all available products</h2>
+
+<div id="Listings">
+    {% for listing in listings %}
+    <div>
+        <h4>ID: {{ listing.id }} Price: {{ listing.price }} <a href=''>update</a></h4>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Here are upcoming bookings</h2>
+
+<div id="Booking">
+    {% for booking in bookings %}
+    <div>
+        <h4>id: {{ booking.id }} date: {{ booking.date }} <a href=''>update</a></h4>
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    <a href='/booking'>Booking</a>
+</div>
+<div>
+    <a href='/listcreate'>Create Listings</a>
+</div>
+<div>
+    <a href='/listupdate'>Update Listings</a>
+</div>
+<div>
+    <a href='/profileupdate'>Profile Update</a>
+</div>
+
+
+
+<a href='/logout'>logout</a>
+{% endblock %}

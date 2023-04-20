@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Profile Update{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2 id="welcome-header">Welcome to Profile Update Page!</h2>
+
+<div id="profile">
+    <h4>user name: {{ user.username }}</h4> 
+    <h4>email: {{ user.email }}</h4>
+    <h4>shipping address: 
+    {% if user.billing_address == '' %} 
+    empty
+    {% else %} 
+    {{ user.billing_address }}
+    {% endif %}</h4>
+    <h4>postal code: 
+    {% if user.postal_code == '' %} 
+    empty
+    {% else %} 
+    {{ user.postal_code }}
+    {% endif %}</h4>
+</div> 
+
+<h4 id='message'>{{message}}</h4>
+
+<form method="post">
+  <div class="form-group">
+    <label for="name">User Name</label>
+    <input class="form-control" name="name" id="name" required>
+    <label for="email">Email</label>
+    <input class="form-control" name="email" id="email">
+    <label for="billing_address">Shipping Address</label>
+    <input class="form-control" type="text" name="billing_address" id="billing_address">
+    <label for="postal_code">Postal Code</label>
+    <input class="form-control" type="text" name="postal_code" id="postal_code" required>
+    <input class="btn btn-primary" type="submit" value="Update">
+  </div>
+</form>
+
+<a href='/'>Home</a>
+
+<a href='/logout'>logout</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Booking{% endblock %}</h1>
+<h4 id='message'>{{message}}</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Listing ID</label>
+        <input type="text" class="form-control" name="listing_id" id="listing_id" 
+            placeholder="Enter the ID of the listing">
+        <label for="description">Date (MM-DD-YYYY)</label>
+        <input type="text" class="form-control" name="date" id="date" 
+            placeholder="Enter the date">
+        <input class="btn btn-primary" type="submit" 
+            value="Booking">
+    </div>
+</form>
+
+<a href='/'>Home</a>
+
+<a href='/logout'>logout</a>
+{% endblock %}
